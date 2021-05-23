@@ -12,6 +12,7 @@ ReactDOM.render(
       <TrashCan/>
     </div>
     <div className="postItContainer">
+      <h1>Notas</h1>
       <ListPostIt/>
     </div>
       

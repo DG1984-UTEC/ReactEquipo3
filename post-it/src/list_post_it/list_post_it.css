@@ -1,3 +1,10 @@
+@font-face {
+    font-family: "whiteboard";
+    src: url("../assets/font/GrutchShaded.ttf");
+}
+
+
+
 .postItWrap{
     display: inline-flex;
     flex-wrap: wrap;
@@ -6,7 +13,6 @@
     text-align: center;
 }
 .postIt{
-    
     margin: 2vh 2vw;
     padding: 15px;
     height: 190px;
@@ -31,5 +37,14 @@
 }
 
 .postItContainer{
-    margin: 5% 12.5%;
+    margin: 2% 12.5%;
+}
+
+.postItContainer h1{
+    font-size: 100px;
+    font-weight: 100;
+    margin: 1%;
+    font-family: "whiteboard", Arial, Helvetica;
+    color: white;
+    text-align: center;
 }
