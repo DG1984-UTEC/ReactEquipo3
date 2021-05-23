@@ -6,6 +6,7 @@
     text-align: center;
 }
 .postIt{
+    
     margin: 2vh 2vw;
     padding: 15px;
     height: 190px;
@@ -13,6 +14,20 @@
     background: rgb(235, 231, 49);
     
     
+}
+
+
+@keyframes MoveUpDown {
+    0%, 100% {
+        margin-top: 0vh;
+    }
+    50% {
+        margin-top: 2vh;
+    }
+}
+.postIt:hover{
+    animation: MoveUpDown 1s ease-in-out infinite;
+    /*margin-top: 0;*/
 }
 
 .postItContainer{
