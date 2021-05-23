@@ -9,13 +9,16 @@ import './list_post_it.css';
 function ListPostIt(){
     let list_post_it=[{id:1,note:"nota1"}, {id:2,note:"nota2"},{id:3,note:"nota3"},{id:4,note:"nota4"},{id:5,note:"nota5"},{id:6,note:"nota6"},{id:7,note:"nota7"}];  
 
+    function editPostIt(postIt){
+        console.log(postIt);
+    }
     
     return (
         <div className="postItWrap">
             {
                 list_post_it.map(element => (
                     
-                    <div className="postIt" key={element.id}>{element.note}</div>
+                    <div onClick={()=>editPostIt(element)} className="postIt" key={element.id}>{element.note}</div>
                 ))
             }           
         </div>
