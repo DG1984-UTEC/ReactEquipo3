@@ -1,0 +1,11 @@
+.TrashCan{
+    margin-top: 1%;
+    width: 128px;
+    height: 128px;
+    background-size: contain;
+    background: url("../assets/trashCan/recycle_bin_empty.png");
+}
+
+.trashCanContainer{
+    text-align: -webkit-right;
+}

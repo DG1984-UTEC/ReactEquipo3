@@ -5,6 +5,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url("./assets/Green-board-BG.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+·root{
+  height: 100%;
+  
 }
 
 code {

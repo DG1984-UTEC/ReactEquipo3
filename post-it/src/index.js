@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+/*import App from './App';*/
 import reportWebVitals from './reportWebVitals';
+import ListPostIt from './list_post_it/ListPostIt'
+import TrashCan from './trash_can/TrashCan'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <div className="trashCanContainer">
+      <TrashCan/>
+    </div>
+    <div className="postItContainer">
+      <ListPostIt/>
+    </div>
+      
   </React.StrictMode>,
   document.getElementById('root')
 );
