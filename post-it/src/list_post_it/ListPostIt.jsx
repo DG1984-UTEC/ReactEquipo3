@@ -14,13 +14,16 @@ function ListPostIt(){
     }
     
     return (
-        <div className="postItWrap">
-            {
-                list_post_it.map(element => (
-                    
-                    <div onClick={()=>editPostIt(element)} className="postIt" key={element.id}>{element.note}</div>
-                ))
-            }           
+        <div className="postItContainer">
+            <h1>Notas</h1>
+            <div className="postItWrap">
+                {
+                    list_post_it.map(element => (
+                        
+                        <div onClick={()=>editPostIt(element)} className="postIt" key={element.id}>{element.note}</div>
+                    ))
+                }           
+            </div>
         </div>
     );
 

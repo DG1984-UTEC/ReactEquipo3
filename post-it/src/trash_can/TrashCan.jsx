@@ -3,7 +3,9 @@ import './TrashCan.css'
 
 function TrashCan(){
     return(
-        <div className="TrashCan"></div>
+        <div className="trashCanContainer">
+            <div className="TrashCan"></div>
+        </div>
     )
 }
 

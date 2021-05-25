@@ -3,19 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 /*import App from './App';*/
 import reportWebVitals from './reportWebVitals';
-import ListPostIt from './list_post_it/ListPostIt'
-import TrashCan from './trash_can/TrashCan'
+import Root from './root/Root'
 
 ReactDOM.render(
   <React.StrictMode>
-    <div className="trashCanContainer">
-      <TrashCan/>
-    </div>
-    <div className="postItContainer">
-      <h1>Notas</h1>
-      <ListPostIt/>
-    </div>
-      
+    <Root/>   
   </React.StrictMode>,
   document.getElementById('root')
 );
