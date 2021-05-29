@@ -13,6 +13,8 @@
     text-align: center;
 }
 .postIt{
+    color: black;
+    text-decoration: none;
     margin: 2vh 2vw;
     padding: 15px;
     height: 190px;
@@ -20,6 +22,10 @@
     background: rgb(235, 231, 49);
     
     
+}
+
+.postIt:visited{
+    color: black;
 }
 
 
@@ -31,11 +37,13 @@
         margin-top: 2vh;
     }
 }
-.postIt:hover{
-    animation: MoveUpDown 1s ease-in-out infinite;
-    /*margin-top: 0;*/
-}
 
+@media only screen and (min-width: 656px) {
+    .postIt:hover{
+        animation: MoveUpDown 1s ease-in-out infinite;
+        /*margin-top: 0;*/
+    }
+}
 .postItContainer{
     margin: 2% 12.5%;
 }
