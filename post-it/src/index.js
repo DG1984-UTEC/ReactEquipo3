@@ -6,13 +6,19 @@ import store from './store'
 /*import App from './App';*/
 import reportWebVitals from './reportWebVitals';
 import Root from './root/Root'
+import {ToastProvider} from 'react-toast-notifications'
+/*<React.StrictMode> se saca scrict mode ya que libreria de toast tiene un warning, falta averiguar causa*/
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <Root/>
-    </Provider>   
-  </React.StrictMode>,
+  
+    <ToastProvider>
+      <Provider store={store}>
+      
+          <Root/>
+        
+      </Provider>  
+    </ToastProvider> 
+,
   document.getElementById('root')
 );
 

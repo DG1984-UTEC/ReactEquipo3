@@ -1,6 +1,7 @@
 import './list_post_it.css';
 import {Link} from 'react-router-dom'
 import {useSelector} from 'react-redux'
+
 /*import { post_it } from './model/post_it';*/
 
 /*{id:4,note:"nota4"},{id:5,note:"nota5"},{id:6,note:"nota6"},{id:7,note:"nota7"}*/
@@ -29,13 +30,8 @@ function ListPostIt(){
     
 
     function editPostIt(postIt){
-        console.log(postIt);
-        console.log("INDEX OF",PostIts.indexOf(postIt));
         localStorage.setItem("postIt",JSON.stringify(postIt));
         let localPostIt=JSON.parse(localStorage.getItem("postIt"));
-        console.log("ID", localPostIt.id);
-        
-        console.log("INDEX OF localstorage",PostIts.findIndex(element=>element.id===localPostIt.id));
 
     }
     
@@ -61,7 +57,7 @@ function ListPostIt(){
                         
                     ))
                 } 
-                          
+                         
             </div>
         </div>
     );
