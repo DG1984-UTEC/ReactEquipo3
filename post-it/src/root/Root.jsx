@@ -3,7 +3,18 @@ import ListPostIt from "../list_post_it/ListPostIt"
 import TrashCan from "../trash_can/TrashCan"
 import EditPostIt from "../editPostIt/EditPostIt"
 
+
+
+
+
+
+
+
 const Root=()=>{
+   
+
+
+    
     return(
     <BrowserRouter>
         <Switch>
