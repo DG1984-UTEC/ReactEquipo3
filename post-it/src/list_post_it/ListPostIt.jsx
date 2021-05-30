@@ -5,13 +5,14 @@ import {useSelector} from 'react-redux'
 
 
 
-function ListPostIt(){
+const ListPostIt=()=>{
 
     /*usamos Store*/
     const PostIts=useSelector((state)=>state.postIts.listPostIt);
     
       
     function editPostIt(postIt){
+        /*Guardamos postIt en localStorage*/
         localStorage.setItem("postIt",JSON.stringify(postIt));
         
 
@@ -21,22 +22,17 @@ function ListPostIt(){
         <div className="postItContainer">
             <h1>Notas</h1>
             <div to="/editPostIt" className="postItWrap">
-            
                 {
                     
                     PostIts.map(element => (
-                        
-                            <div  className="postIt" key={element.id}>{element.note}
-                                <div className="btnContainer">
-                                    <Link to="/editPostIt" className="btn btnLinkList" onClick={()=>editPostIt(element)}>Editar</Link>
-                                    <button className="btn">Borrar</button>
-                                </div>
-                                
+                        <div  className="postIt" key={element.id}>
+                            {element.note}
+                            <div className="btnContainer">
+                                <Link to="/editPostIt" className="btn btnLinkList" onClick={()=>editPostIt(element)}>Editar</Link>
+                                <button className="btn">Borrar</button>
                             </div>
-                        
-                       
-                        
-                        
+                                
+                        </div>
                     ))
                 } 
                          

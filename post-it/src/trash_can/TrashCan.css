@@ -1,9 +1,9 @@
 .TrashCan{
     margin-top: 1%;
-    width: 128px;
-    height: 128px;
+    width: 90px;
+    height: 90px;
     background-size: contain;
-    background: url("../assets/trashCan/recycle_bin_empty.png");
+    background: url("../assets/trashCan/recycle_bin_empty_small.png");
 }
 
 .trashCanContainer{
