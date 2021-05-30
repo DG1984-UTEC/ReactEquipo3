@@ -42,7 +42,7 @@ const EditPostIt=()=>{
             console.log("Salio todo joya");
         } catch (error) {
             console.log("Estoy en error");
-            addToast('PostIt editado con éxito!',{appearance:'error', autoDismiss: true, autoDismissTimeout:1500})
+            addToast('Ups, Algo salió mal',{appearance:'error', autoDismiss: true, autoDismissTimeout:1500})
         }
         
         
