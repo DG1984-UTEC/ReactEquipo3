@@ -2,3 +2,12 @@
 
     margin: 2% 12.5%;
 }
+
+.TrashContainer h1{
+    font-size: 100px;
+    font-weight: 100;
+    margin: 1%;
+    font-family: "whiteboard", Arial, Helvetica;
+    color: white;
+    text-align: center;
+}

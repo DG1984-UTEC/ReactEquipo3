@@ -29,7 +29,7 @@ const ListPostIt=()=>{
                             {element.note}
                             <div className="btnContainer">
                                 <Link to="/editPostIt" className="btn btnLinkList" onClick={()=>editPostIt(element)}>Editar</Link>
-                                <button className="btn">Borrar</button>
+                                <Link to="TrashPostIt" className="btn btnLinkList">Borrar</Link>
                             </div>
                                 
                         </div>

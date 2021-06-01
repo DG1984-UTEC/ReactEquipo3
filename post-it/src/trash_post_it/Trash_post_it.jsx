@@ -7,7 +7,10 @@ import {useSelector} from 'react-redux'
 function TrashPostIt(){
 
 return(
-    <div className="TrashPostItContainer">
+    <div className="TrashContainer h1">
+        
+    
+    <h1>Papelera</h1>
     <hi>ACA VA LA LISTA DE BAJA LOGICA PARA PAPELERA</hi>
     <Link to="/" className="trashLink">To Menu</Link>
     </div>
