@@ -1,33 +1,20 @@
 import './list_post_it.css';
 import {Link} from 'react-router-dom'
 import {useSelector} from 'react-redux'
-/*import { post_it } from './model/post_it';*/
-
-/*{id:4,note:"nota4"},{id:5,note:"nota5"},{id:6,note:"nota6"},{id:7,note:"nota7"}*/
-/*
-let list_post_it=[{id:1,note:"nota1"}, {id:2,note:"nota2"},{id:3,note:"nota3"}];
-localStorage.setItem("listaNotas", JSON.stringify(list_post_it));
-*/
 
 
 
 
-
-function ListPostIt(){
+const ListPostIt=()=>{
 
     /*usamos Store*/
     const PostIts=useSelector((state)=>state.postIts.listPostIt);
-    console.log("statePostit!!!", PostIts.listPostIt);
-      
-    console.log("LISTA OBTENIDA DESDE LOCAL",localStorage.getItem("listaNotas"));
-
-    /*let listaPostIt=JSON.parse(localStorage.getItem("listaNotas"));*/
-
     
-
+      
     function editPostIt(postIt){
-        console.log(postIt);
-        console.log("INDEX OF",PostIts.indexOf(postIt));
+        /*Guardamos postIt en localStorage*/
+        localStorage.setItem("postIt",JSON.stringify(postIt));
+        
 
     }
     
@@ -38,10 +25,17 @@ function ListPostIt(){
                 {
                     
                     PostIts.map(element => (
-                        
-                        <Link to="/editPostIt" onClick={()=>editPostIt(element)} className="postIt" key={element.id}>{element.note}</Link>
+                        <div  className="postIt" key={element.id}>
+                            {element.note}
+                            <div className="btnContainer">
+                                <Link to="/editPostIt" className="btn btnLinkList" onClick={()=>editPostIt(element)}>Editar</Link>
+                                <button className="btn">Borrar</button>
+                            </div>
+                                
+                        </div>
                     ))
-                }           
+                } 
+                         
             </div>
         </div>
     );
