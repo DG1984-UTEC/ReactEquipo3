@@ -28,7 +28,7 @@ const ListPostIt=()=>{
                         <div  className="postIt" key={element.id}>
                             {element.note}
                             <div className="btnContainer">
-                                <Link to="/editPostIt" className="btn btnLinkList" onClick={()=>editPostIt(element)}>Editar</Link>
+                                <Link to={{pathname:"/editPostIt/", state:{id:element.id, listNote:element.note}}} className="btn btnLinkList" onClick={()=>editPostIt(element)}>Editar</Link>
                                 <button className="btn">Borrar</button>
                             </div>
                                 

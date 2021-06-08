@@ -3,14 +3,21 @@ import {createSlice} from '@reduxjs/toolkit'
 const editPostItAction=({listPostIt},payload)=>{
     console.log("STATE", listPostIt);
     console.log("PAYLOAD", payload);
-    const {index, newPostIt}=payload;
+    const {id, note}=payload;
+
+    const index=listPostIt.findIndex(element=>element.id===id);
+
+
+    
     /*console.log("LISTPOSTIT TOOLKIT",listPostIt);*/
-    listPostIt[index]=newPostIt;
+    listPostIt[index]={id:id,note:note};
 
     localStorage.setItem("listaNotas",JSON.stringify(listPostIt));
 
     /*return {state};*/
 }
+
+
 
 
 export const postItsSlice= createSlice({
@@ -24,12 +31,13 @@ export const postItsSlice= createSlice({
         ]
     },
     reducers:{
-        editPostIt: (state, action)=>editPostItAction(state, action.payload)
+        editPostIt: (state, action)=>editPostItAction(state, action.payload),
+       
     }
 });
 
 export const{
     editPostIt
-}=postItsSlice.actions
+    }=postItsSlice.actions
 
 export default postItsSlice.reducer
