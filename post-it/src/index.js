@@ -10,7 +10,7 @@ import {ToastProvider} from 'react-toast-notifications'
 /*<React.StrictMode> se saca scrict mode ya que libreria de toast tiene un warning, falta averiguar causa*/
 
 ReactDOM.render(
-  <ToastProvider placement='bottom-right'>
+  <ToastProvider placement='bottom-center'>
     <React.StrictMode>
       <Provider store={store}>
         <Root/>

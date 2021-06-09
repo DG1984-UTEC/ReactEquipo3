@@ -1,12 +1,13 @@
 import './TrashCanList.css'
 import {useSelector} from 'react-redux'
 import {useDispatch} from 'react-redux';
-import {restorePostIt} from '../reducers/postIts';
+import {restorePostIt, permanentDeletePostIt} from '../reducers/postIts';
 import { useHistory } from "react-router-dom";
+import {useToasts} from 'react-toast-notifications';
 
 function TrashCanList(){
     const history = useHistory();
-
+    const {addToast}=useToasts();
     const dispatch=useDispatch();
 
     /*usamos Store*/
@@ -16,14 +17,38 @@ function TrashCanList(){
 
     const restorePostItButton=(postIt)=>{
         try {
+
             dispatch(restorePostIt(postIt))
+            addToast('PostIt restaurado con éxito!',{appearance:'success', autoDismiss: true, autoDismissTimeout:1500})
             if(PostIts.length===1){
                 history.push("/");
             }
         
         } catch (error) {
-            
+            addToast('Ups, Algo salió mal',{appearance:'error', autoDismiss: true, autoDismissTimeout:1500})
         } 
+        
+
+    }
+
+    const permanentDeletePostItButton=(postIt)=>{
+        
+        let ask=window.confirm("Estas seguro que quieres eliminarla de forma permanente?")
+        
+        console.log(ask);
+
+        if(ask===true){
+            try {
+                dispatch(permanentDeletePostIt(postIt));
+                addToast('PostIt eliminado con éxito!',{appearance:'success', autoDismiss: true, autoDismissTimeout:1500})
+                if(PostIts.length===1){
+                    history.push("/");
+                }
+            
+            } catch (error) {
+                addToast('Ups, Algo salió mal',{appearance:'error', autoDismiss: true, autoDismissTimeout:1500})
+            } 
+        }
         
 
     }
@@ -39,7 +64,7 @@ function TrashCanList(){
                                 {element.note}
                                 <div className="btnContainer">
                                     <button className="btn btnTrashCanList" onClick={()=>restorePostItButton(element)}>Restaurar</button> 
-                                    <button className="btn btnTrashCanList">Borrar</button>
+                                    <button className="btn btnTrashCanList" onClick={()=>permanentDeletePostItButton(element)}>Borrar</button>
                                 </div>
                                     
                             </div>

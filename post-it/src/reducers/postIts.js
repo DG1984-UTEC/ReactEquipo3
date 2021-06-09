@@ -54,6 +54,19 @@ const restorePostItAction=({listPostIt,deletedPostIt},payload)=>{
 
 }
 
+const permanentDeletePostItAction=({deletedPostIt},payload)=>{
+    const{id}=payload;
+    const index=deletedPostIt.findIndex(element=>element.id===id);
+
+    if(index!==-1){
+        deletedPostIt.splice(index,1);
+       
+        /*Cargo cambios en localStorage */
+        localStorage.setItem("deletedPostIts",JSON.stringify(deletedPostIt));
+
+    }
+}
+
 
 
 
@@ -71,7 +84,8 @@ export const postItsSlice= createSlice({
     reducers:{
         editPostIt: (state, action)=>editPostItAction(state, action.payload),
         deletePostIt:(state,action)=>deletePostItAction(state,action.payload),
-        restorePostIt:(state,action)=>restorePostItAction(state,action.payload)
+        restorePostIt:(state,action)=>restorePostItAction(state,action.payload),
+        permanentDeletePostIt:(state,action)=>permanentDeletePostItAction(state,action.payload)
        
     }
 });
@@ -79,7 +93,8 @@ export const postItsSlice= createSlice({
 export const{
     editPostIt,
     deletePostIt,
-    restorePostIt
+    restorePostIt,
+    permanentDeletePostIt
     }=postItsSlice.actions
 
 export default postItsSlice.reducer
