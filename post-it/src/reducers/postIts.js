@@ -6,14 +6,20 @@ import {createSlice} from '@reduxjs/toolkit'
 const editPostItAction=({listPostIt},payload)=>{
     console.log("STATE", listPostIt);
     console.log("PAYLOAD", payload);
-    const {index, newPostIt}=payload;
+    const {id, note}=payload;
+
+    const index=listPostIt.findIndex(element=>element.id===id);
+
+
+    
     /*console.log("LISTPOSTIT TOOLKIT",listPostIt);*/
-    listPostIt[index]=newPostIt;
+    listPostIt[index]={id:id,note:note};
 
     localStorage.setItem("listaNotas",JSON.stringify(listPostIt));
 
     /*return {state};*/
 }
+
 
 const AddPostItAction=({listPostIt},payload)=>{
     console.log("STATE", listPostIt);
@@ -31,6 +37,57 @@ const AddPostItAction=({listPostIt},payload)=>{
 
 
 
+const deletePostItAction=({listPostIt,deletedPostIt},payload)=>{
+    
+    
+    const{id}=payload;
+    const index=listPostIt.findIndex(element=>element.id===id);
+
+    if(index!==-1){
+        listPostIt.splice(index,1);
+        deletedPostIt.push(payload);
+    
+        /*Cargo cambios en localStorage */
+        localStorage.setItem("listaNotas",JSON.stringify(listPostIt));
+        localStorage.setItem("deletedPostIts",JSON.stringify(deletedPostIt));
+
+    }
+   
+
+
+}
+
+const restorePostItAction=({listPostIt,deletedPostIt},payload)=>{
+
+    const{id}=payload;
+    const index=deletedPostIt.findIndex(element=>element.id===id);
+
+    if(index!==-1){
+        deletedPostIt.splice(index,1);
+        listPostIt.push(payload);
+    
+        /*Cargo cambios en localStorage */
+        localStorage.setItem("listaNotas",JSON.stringify(listPostIt));
+        localStorage.setItem("deletedPostIts",JSON.stringify(deletedPostIt));
+
+    }
+
+}
+
+const permanentDeletePostItAction=({deletedPostIt},payload)=>{
+    const{id}=payload;
+    const index=deletedPostIt.findIndex(element=>element.id===id);
+
+    if(index!==-1){
+        deletedPostIt.splice(index,1);
+       
+        /*Cargo cambios en localStorage */
+        localStorage.setItem("deletedPostIts",JSON.stringify(deletedPostIt));
+
+    }
+}
+
+
 
 
 
@@ -41,17 +98,9 @@ export const postItsSlice= createSlice({
             {id:1,note:"nota1"}, 
             {id:2,note:"nota2"},
             {id:3,note:"nota3"}
-            
-            
         ],
-        
-        
-        id:parseInt(localStorage.getItem("id"))||4
-
-        //id:localStorage.setItem("id",JSON.stringify(id))||4
-        
-        //id:localStorage.setItem("id",4)||4
-        //id:4       /* (localStorage.setItem("id",4)) */
+        id:parseInt(localStorage.getItem("id"))||4,
+        deletedPostIt:JSON.parse(localStorage.getItem("deletedPostIts"))||[]
         
     },
     reducers:{
@@ -61,19 +110,21 @@ export const postItsSlice= createSlice({
             const idPostIt=state.id+=1;
           
            localStorage.setItem("id",idPostIt);
-            
-        }
-            
-
-
-    }
-    
+        },
+        deletePostIt:(state,action)=>deletePostItAction(state,action.payload),
+        restorePostIt:(state,action)=>restorePostItAction(state,action.payload),
+        permanentDeletePostIt:(state,action)=>permanentDeletePostItAction(state,action.payload)
+    },
 });
 
 export const{
     editPostIt,
     addPostIt,
-    increment
-}=postItsSlice.actions
+    increment,
+    deletePostIt,
+    restorePostIt,
+    permanentDeletePostIt
+    }=postItsSlice.actions
+
 
 export default postItsSlice.reducer
