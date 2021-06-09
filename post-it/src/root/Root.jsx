@@ -23,9 +23,12 @@ const Root=()=>{
                 <Switch>
                     <Route exact path="/">
                         <TrashCan/>
-                        <AddPostIt/>
+                        
                         <ListPostIt/>
                        
+                    </Route>
+                    <Route path="/addPostIt">
+                    <AddPostIt/>
                     </Route>
                     <Route path="/editPostIt">
                         <EditPostIt/>

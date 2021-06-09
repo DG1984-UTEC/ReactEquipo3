@@ -9,3 +9,11 @@
 .trashCanContainer{
     text-align: -webkit-right;
 }
+
+.boton{
+    display: flex;
+    justify-content:left;
+    margin-top: 1%;
+    font-size: 35px;
+    
+}

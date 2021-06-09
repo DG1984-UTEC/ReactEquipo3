@@ -2,7 +2,10 @@
 import React from 'react'
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPostIt } from '../reducers/postIts';
+import { addPostIt,increment  } from '../reducers/postIts';
+import {ToastProvider, useToasts} from 'react-toast-notifications'
+import {Link} from 'react-router-dom'
+
 
 
 
@@ -10,31 +13,52 @@ import { addPostIt } from '../reducers/postIts';
 
 function AddPostIt(){
 
-    const list_post_it=useSelector((state)=>state.postIts.listPostIt);
-
-    const NewPostItPrueba=useSelector((state)=>state.postIts.newPostItPrueba);
+   
     const dispatch = useDispatch();
    
-    const [list, setNote]=useState(list_post_it);
     
+    const [note, setNote]=useState();
+    
+    const {addToast}=useToasts();
 
-    const newNote=()=>{
+    const id = useSelector((state) => state.postIts.id);
+
+   
+    
+    const NewNote=()=>{
  
-    setNote(list=>[...list,(NewPostItPrueba)]);
+        
 
-    dispatch(addPostIt(list));
-    
-    //console.log(list)
-    //console.log(NewPostItPrueba)
-    //console.log(newPostIt)
+    const post={id:id,note:note}
 
+   
+   
+    dispatch(addPostIt(post));
+    dispatch(increment());
+    addToast('PostIt agregado con éxito!',{appearance:'success', autoDismiss: true, autoDismissTimeout:3000})
+  
+
+
+    }
+
+    function handleChange(e){
+        setNote(e.target.value);
+        
     }
     return(
         
-        <div >
-            <button className="Add" onClick={()=>newNote()}>Agregar</button>
+         <div  className="editContainer">
+                <div className="editForm">
+                    <h1>Add Your Post it!</h1>
+                    <textarea  onChange={handleChange} value={note}></textarea>
+                    <Link to="/" className="btnEdit linkBtn">Cancelar</Link>
+                    <Link to="/" className="btnEdit linkBtn" onClick={()=>NewNote()}>Guardar</Link>
+                </div>                          
+            </div>
             
-        </div>
+
+
+    
 
 
     )
