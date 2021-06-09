@@ -55,16 +55,16 @@ const EditPostIt=()=>{
     /*onClick={()=>formNote()} */
     const nodeRef=React.useRef(null);
     return (
-        <ToastProvider nodeRef={nodeRef}>  
-            <div ref={nodeRef} className="editContainer">
-                <div className="editForm" ref={nodeRef}>
+        
+            <div className="editContainer">
+                <div className="editForm" >
                     <h1>Edit Your Post it!</h1>
                     <textarea  onChange={handleChange} value={note}></textarea>
                     <Link to="/" className="btnEdit linkBtn">Cancelar</Link>
                     <Link to="/" className="btnEdit linkBtn" onClick={()=>formNote()}>Guardar</Link>
                 </div>                          
             </div>
-        </ToastProvider>
+       
     )
 }
 

@@ -2,6 +2,7 @@ import {createSlice} from '@reduxjs/toolkit'
 
 
 
+
 const editPostItAction=({listPostIt},payload)=>{
     console.log("STATE", listPostIt);
     console.log("PAYLOAD", payload);
@@ -14,19 +15,21 @@ const editPostItAction=({listPostIt},payload)=>{
     /*return {state};*/
 }
 
-const addPostItAction=({newPostItPrueba},payload)=>{
-    console.log("STATE", newPostItPrueba);
+const AddPostItAction=({listPostIt},payload)=>{
+    console.log("STATE", listPostIt);
     console.log("PAYLOAD", payload);
 
-    const listPostIt=localStorage.getItem("listaNotas");
-    //const {listPostIt}=payload;
-    //const newPostIt={id:4,note:"nota3"};
-
-    localStorage.setItem("listaNotas",JSON.stringify(listPostIt));
-    localStorage.setItem("newPostItPrueba",JSON.stringify(newPostItPrueba));
     
+    listPostIt.push(payload);
+
+    
+    localStorage.setItem("listaNotas",JSON.stringify(listPostIt));
+   
     
 }
+
+
+
 
 
 
@@ -39,12 +42,29 @@ export const postItsSlice= createSlice({
             {id:2,note:"nota2"},
             {id:3,note:"nota3"}
             
-        ],newPostItPrueba:JSON.parse(localStorage.getItem("newPostItPrueba"))||{id:4,note:"nota4"}
+            
+        ],
+        
+        
+        id:parseInt(localStorage.getItem("id"))||4
+
+        //id:localStorage.setItem("id",JSON.stringify(id))||4
+        
+        //id:localStorage.setItem("id",4)||4
+        //id:4       /* (localStorage.setItem("id",4)) */
         
     },
     reducers:{
         editPostIt: (state, action)=>editPostItAction(state, action.payload),
-        addPostIt:(state, action)=>addPostItAction(state, action.payload)
+        addPostIt:(state, action)=>AddPostItAction(state, action.payload),
+        increment:(state)=>{
+            const idPostIt=state.id+=1;
+          
+           localStorage.setItem("id",idPostIt);
+            
+        }
+            
+
 
     }
     
@@ -52,7 +72,8 @@ export const postItsSlice= createSlice({
 
 export const{
     editPostIt,
-    addPostIt
+    addPostIt,
+    increment
 }=postItsSlice.actions
 
 export default postItsSlice.reducer

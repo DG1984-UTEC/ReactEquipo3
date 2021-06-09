@@ -21,7 +21,7 @@ const ListPostIt=()=>{
     return (
         <div className="postItContainer">
             <h1>Notas</h1>
-            <div to="/editPostIt" className="postItWrap">
+            <div  className="postItWrap">
                 {
                     
                     PostIts.map(element => (
