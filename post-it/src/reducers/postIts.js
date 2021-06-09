@@ -17,6 +17,43 @@ const editPostItAction=({listPostIt},payload)=>{
     /*return {state};*/
 }
 
+const deletePostItAction=({listPostIt,deletedPostIt},payload)=>{
+    
+    
+    const{id}=payload;
+    const index=listPostIt.findIndex(element=>element.id===id);
+
+    if(index!==-1){
+        listPostIt.splice(index,1);
+        deletedPostIt.push(payload);
+    
+        /*Cargo cambios en localStorage */
+        localStorage.setItem("listaNotas",JSON.stringify(listPostIt));
+        localStorage.setItem("deletedPostIts",JSON.stringify(deletedPostIt));
+
+    }
+   
+
+
+}
+
+const restorePostItAction=({listPostIt,deletedPostIt},payload)=>{
+
+    const{id}=payload;
+    const index=deletedPostIt.findIndex(element=>element.id===id);
+
+    if(index!==-1){
+        deletedPostIt.splice(index,1);
+        listPostIt.push(payload);
+    
+        /*Cargo cambios en localStorage */
+        localStorage.setItem("listaNotas",JSON.stringify(listPostIt));
+        localStorage.setItem("deletedPostIts",JSON.stringify(deletedPostIt));
+
+    }
+
+}
+
 
 
 
@@ -28,16 +65,21 @@ export const postItsSlice= createSlice({
             {id:2,note:"nota2"},
             {id:3,note:"nota3"}
             
-        ]
+        ],
+        deletedPostIt:JSON.parse(localStorage.getItem("deletedPostIts"))||[]
     },
     reducers:{
         editPostIt: (state, action)=>editPostItAction(state, action.payload),
+        deletePostIt:(state,action)=>deletePostItAction(state,action.payload),
+        restorePostIt:(state,action)=>restorePostItAction(state,action.payload)
        
     }
 });
 
 export const{
-    editPostIt
+    editPostIt,
+    deletePostIt,
+    restorePostIt
     }=postItsSlice.actions
 
 export default postItsSlice.reducer

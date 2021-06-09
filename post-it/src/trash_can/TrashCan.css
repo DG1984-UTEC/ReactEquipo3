@@ -3,7 +3,7 @@
     width: 90px;
     height: 90px;
     background-size: contain;
-    background: url("../assets/trashCan/recycle_bin_empty_small.png");
+    /*background: url("../assets/trashCan/recycle_bin_empty_small.png");*/
 }
 
 .trashCanContainer{

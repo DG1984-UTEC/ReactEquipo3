@@ -44,11 +44,11 @@ const EditPostIt=()=>{
     }
 
    
-    const nodeRef=React.useRef(null);
+    
     return (
          
-            <div ref={nodeRef} className="editContainer">
-                <div className="editForm" ref={nodeRef}>
+            <div  className="editContainer">
+                <div className="editForm" >
                     <h1>Edit Your Post it!</h1>
                     <textarea  onChange={handleChange} value={note}></textarea>
                     <Link to="/" className="btnEdit linkBtn">Cancelar</Link>
