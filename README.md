@@ -47,7 +47,7 @@ We use Jest as our testing framework
 Learn more about on https://jestjs.io/
 Git: https://github.com/facebook/jest
 
-### `Extra libraries`
+### `Libraries`
 We use react-toast-notifications to manage events that has to be notified to the user.
 Git: https://www.npmjs.com/package/react-toast-notifications
 
