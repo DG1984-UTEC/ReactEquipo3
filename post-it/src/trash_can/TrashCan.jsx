@@ -4,9 +4,9 @@ import './TrashCan.css';
 import empty_bin from "../assets/trashCan/recycle_bin_empty_small.png";
 import full_bin from "../assets/trashCan/recycle_bin_full_small.png";
 import {useSelector} from 'react-redux';
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import {useToasts} from 'react-toast-notifications';
-import { useState } from 'react';
+import { useState, React } from 'react';
 
 
 

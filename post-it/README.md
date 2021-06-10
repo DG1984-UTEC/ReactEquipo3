@@ -1,6 +1,21 @@
-# Getting Started with Create React App
+## Required software
+Before starting, make sure your computer has up-to-date versions of the following installed:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    -Node/NPM (choose the latest version)
+    -Git
+    -Visual Studio Code as our main IDE.
+
+
+
+
+
+## Installing and running the project
+Clone the repository in the directory of your preference using git clone https://github.com/DG1984-UTEC/ReactEquipo3.git
+
+    -Type cd post-it to change your current directory to the repository folder.
+    -Open this repository with Visual Studio Code.
+    -Type npm install to install all of the project dependencies.
+    -Start the project locally running: npm start
 
 ## Available Scripts
 
@@ -17,6 +32,11 @@ You will also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.
+
+
+
+
+## --->Extras<----
 
 ### `Jest`
 We use Jest as our testing framework

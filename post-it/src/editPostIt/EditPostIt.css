@@ -45,3 +45,10 @@ textarea{
           
     }
 }
+
+.editContainer h1{
+    font-size: 40px;
+    font-weight: 100;
+    font-family: "whiteboard", Arial, Helvetica;
+    color: white;
+}

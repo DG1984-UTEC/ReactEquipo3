@@ -1,3 +1,4 @@
+import React from 'react'
 import './list_post_it.css';
 import {Link} from 'react-router-dom'
 import {useSelector} from 'react-redux'
