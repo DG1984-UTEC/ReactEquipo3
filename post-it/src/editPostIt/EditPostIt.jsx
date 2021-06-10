@@ -16,6 +16,7 @@ const EditPostIt=()=>{
     const {id, listNote}=location.state||{id:"",listNote:""};
     const [note, setNote]=useState(listNote);
     const {addToast}=useToasts();
+
     
     const formNote=(e)=>{
         const postItDispatch={
@@ -25,7 +26,7 @@ const EditPostIt=()=>{
 
         if(note){
             try {
-                console.log("Dispatch")
+               
                 dispatch(editPostIt(postItDispatch));
                 
                
@@ -55,7 +56,7 @@ const EditPostIt=()=>{
             <div  className="editContainer">
 
                 <div className="editForm" >
-                    <h1>Edit Your Post it!</h1>
+                    <h1>Edit Your Post it</h1>
                     <textarea  onChange={handleChange} value={note}></textarea>
                     <Link to="/" className="btnEdit linkBtn">Cancelar</Link>
                     <Link to="/" className="btnEdit linkBtn" onClick={formNote}>Guardar</Link>

@@ -22,7 +22,7 @@ describe('ListPostIt',()=>{
 
     it('should render Title', () => {
         renderComponent({ store: store, component: <EditPostIt/> });
-        const title = screen.getByText("Edit Your Post it!");
+        const title = screen.getByText("Edit Your Post it");
         expect(title).toBeInTheDocument();
     });
 
