@@ -37,6 +37,12 @@ textarea{
     color: black;
 }
 
+@media only screen and (min-width: 656px) {
+    .linkBtn:hover{
+        background: rgb(211, 240, 158);
+    }
+}
+
 .linkBtn:visited{
     color: black;
 }

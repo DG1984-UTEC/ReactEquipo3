@@ -9,10 +9,13 @@ import {useToasts} from 'react-toast-notifications';
 
 
 
+
 const ListPostIt=()=>{
 
     const {addToast}=useToasts();
     const dispatch=useDispatch();
+    
+   
 
     /*usamos Store*/
     const PostIts=useSelector((state)=>state.postIts.listPostIt);
@@ -26,6 +29,8 @@ const ListPostIt=()=>{
         
     }
 
+    
+
 
     if(PostIts.length!==0){
         return (
@@ -37,7 +42,7 @@ const ListPostIt=()=>{
                             <div  className="postIt" key={element.id}>
                                 {element.note}
                                 <div className="btnContainer">
-                                    <Link to={{pathname:"/editPostIt/", state:{id:element.id, listNote:element.note}}} className="btn btnLinkList">Editar</Link>
+                                    <Link to={{pathname:"/editPostIt", state:{id:element.id, listNote:element.note}}} className="btn btnLinkList">Editar</Link>
                                     <button className="btn" onClick={()=>deletePostItButton(element)}>Borrar</button>
                                 </div>
                             </div>

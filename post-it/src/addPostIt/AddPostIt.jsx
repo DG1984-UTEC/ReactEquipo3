@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addPostIt,increment  } from '../reducers/postIts';
-import {ToastProvider, useToasts} from 'react-toast-notifications'
+import {useToasts} from 'react-toast-notifications'
 import {Link} from 'react-router-dom'
 
 

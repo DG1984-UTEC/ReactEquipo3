@@ -69,6 +69,13 @@
         margin-top: 0vh;
         
     }
+    .btn:hover{
+        background:rgb(211, 240, 158);
+    }
+
+    .postItContainer h1{
+        font-size: 100px !important;
+    }
 }
 .postItContainer{
     margin: 2% 12.5%;
@@ -76,7 +83,7 @@
 }
 
 .postItContainer h1{
-    font-size: 100px;
+    font-size: 17vw;
     font-weight: 100;
     margin: 1%;
     font-family: "whiteboard", Arial, Helvetica;
@@ -118,6 +125,9 @@
     position: relative;
     top: 140px;
 }
+
+
+
 
 .btnLinkList{
     padding: 9px;

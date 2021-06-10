@@ -16,6 +16,7 @@ const EditPostIt=()=>{
     const {id, listNote}=location.state||{id:"",listNote:""};
     const [note, setNote]=useState(listNote);
     const {addToast}=useToasts();
+
     
     const formNote=(e)=>{
         const postItDispatch={
