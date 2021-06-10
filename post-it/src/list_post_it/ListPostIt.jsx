@@ -19,9 +19,9 @@ const ListPostIt=()=>{
     const deletePostItButton=(postIt)=>{
         try {
             dispatch(deletePostIt(postIt));
-            addToast('PostIt movido a papelera con éxito!',{appearance:'success', autoDismiss: true, autoDismissTimeout:1500})
+            addToast('PostIt movido a papelera con éxito!',{appearance:'success', autoDismiss: true, autoDismissTimeout:3000})
         } catch (error) {
-            addToast('Ups, Algo salió mal',{appearance:'error', autoDismiss: true, autoDismissTimeout:1500})
+            addToast('Ups, Algo salió mal',{appearance:'error', autoDismiss: true, autoDismissTimeout:3000})
         }
         
     }
