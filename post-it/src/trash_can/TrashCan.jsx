@@ -20,7 +20,7 @@ function TrashCan(){
     const goToTrashCan=(e)=>{
         if( PostIts.length===0){
         e.preventDefault()
-        addToast('Papelera vacia',{appearance:'error', autoDismiss: true, autoDismissTimeout:1500})
+        addToast('Papelera vacia',{appearance:'error', autoDismiss: true, autoDismissTimeout:3000})
         }       
     }
    

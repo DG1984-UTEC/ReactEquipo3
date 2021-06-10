@@ -29,16 +29,16 @@ const EditPostIt=()=>{
                 dispatch(editPostIt(postItDispatch));
                 
                
-                addToast('PostIt editado con éxito!',{appearance:'success', autoDismiss: true, autoDismissTimeout:1500})
+                addToast('PostIt editado con éxito!',{appearance:'success', autoDismiss: true, autoDismissTimeout:3000})
                 console.log("Salio todo joya");
             } catch (error) {
                 console.log("Estoy en error");
-                addToast('Ups, Algo salió mal',{appearance:'error', autoDismiss: true, autoDismissTimeout:1500})
+                addToast('Ups, Algo salió mal',{appearance:'error', autoDismiss: true, autoDismissTimeout:3000})
             }
             
         }else{
             e.preventDefault();
-            addToast('Ups, Debes de completar el campo nota',{appearance:'error', autoDismiss: true, autoDismissTimeout:1500})
+            addToast('Ups, Debes de completar el campo nota',{appearance:'error', autoDismiss: true, autoDismissTimeout:3000})
         }
         
         
