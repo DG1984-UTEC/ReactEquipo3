@@ -1,3 +1,4 @@
+import React from 'react'
 import {BrowserRouter,Switch,Route} from "react-router-dom"
 import ListPostIt from "../list_post_it/ListPostIt"
 import TrashCan from "../trash_can/TrashCan"
