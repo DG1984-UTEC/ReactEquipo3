@@ -57,7 +57,7 @@ const ListPostIt=()=>{
             <div className="postItContainer">
                 <h1>Notas</h1>
                 <div to="/editPostIt" className="postItWrap">
-                    <h3>Lista PostIts vacia</h3>
+                    <h3>Lista vacía</h3>
                             
                 </div>
             </div>
