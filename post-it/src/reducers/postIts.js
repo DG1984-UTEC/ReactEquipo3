@@ -88,9 +88,6 @@ const permanentDeletePostItAction=({deletedPostIt},payload)=>{
 }
 
 
-
-
-
 export const postItsSlice= createSlice({
     name: 'postIts',
     initialState:{
@@ -113,7 +110,11 @@ export const postItsSlice= createSlice({
         },
         deletePostIt:(state,action)=>deletePostItAction(state,action.payload),
         restorePostIt:(state,action)=>restorePostItAction(state,action.payload),
-        permanentDeletePostIt:(state,action)=>permanentDeletePostItAction(state,action.payload)
+        permanentDeletePostIt:(state,action)=>permanentDeletePostItAction(state,action.payload),
+        clearTrashCan:(state)=>{
+            state.deletedPostIt=[]
+            localStorage.removeItem("deletedPostIts");
+        }
     },
 });
 
@@ -123,7 +124,8 @@ export const{
     increment,
     deletePostIt,
     restorePostIt,
-    permanentDeletePostIt
+    permanentDeletePostIt,
+    clearTrashCan
     }=postItsSlice.actions
 
 

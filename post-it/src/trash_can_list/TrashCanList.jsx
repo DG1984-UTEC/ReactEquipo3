@@ -61,13 +61,14 @@ function TrashCanList(){
                 {
                     
                         PostIts.map(element => (
-                            <div  className="postIt" key={element.id}>
-                                {element.note}
+                            <div id="noteContainer"key={element.id}> 
+                                <div  className="postIt">
+                                    {element.note}
+                                </div>
                                 <div className="btnContainer">
                                     <button className="btn btnTrashCanList" onClick={()=>restorePostItButton(element)}>Restaurar</button> 
                                     <button className="btn btnTrashCanList" onClick={()=>permanentDeletePostItButton(element)}>Borrar</button>
                                 </div>
-                                    
                             </div>
                         ))
                     

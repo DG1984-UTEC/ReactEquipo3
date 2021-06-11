@@ -57,7 +57,7 @@ const EditPostIt=()=>{
 
                 <div className="editForm" >
                     <h1>Edit Your Post it</h1>
-                    <textarea  onChange={handleChange} value={note}></textarea>
+                    <textarea maxLength="200" onChange={handleChange} value={note}></textarea>
                     <Link to="/" className="btnEdit linkBtn">Cancelar</Link>
                     <Link to="/" className="btnEdit linkBtn" onClick={formNote}>Guardar</Link>
                 </div>                          
