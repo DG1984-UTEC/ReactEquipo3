@@ -35,18 +35,18 @@ const ListPostIt=()=>{
 
     if(PostIts.length!==0){
         return (
-            <div className="postItContainer">
+            <div className='postItContainer'>
                 <h1>Notas</h1>
-                <div to="/editPostIt" className="postItWrap">
+                <div to='/editPostIt' className='postItWrap'>
                     {
                         PostIts.map(element => (
-                            <div id="noteContainer"key={element.id}> 
-                                <div  className="postIt">
+                            <div id='noteContainer'key={element.id}> 
+                                <div  className='postIt'>
                                     {element.note}
                                 </div>
-                                <div className="btnContainer">
-                                <Link to={{pathname:"/editPostIt", state:{id:element.id, listNote:element.note}}} className="btn btnLinkList">Editar</Link>
-                                <button className="btn" onClick={()=>deletePostItButton(element)}>Borrar</button>
+                                <div className='btnContainer'>
+                                <Link to={{pathname:'/editPostIt', state:{id:element.id, listNote:element.note}}} className='btn btnLinkList'>Editar</Link>
+                                <button className='btn' onClick={()=>deletePostItButton(element)}>Borrar</button>
                                 </div>
                             </div>
 
@@ -58,9 +58,9 @@ const ListPostIt=()=>{
         );
     }else{
         return(
-            <div className="postItContainer">
+            <div className='postItContainer'>
                 <h1>Notas</h1>
-                <div to="/editPostIt" className="postItWrap">
+                <div to='/editPostIt' className='postItWrap'>
                     <h3>Lista vacía</h3>
                             
                 </div>

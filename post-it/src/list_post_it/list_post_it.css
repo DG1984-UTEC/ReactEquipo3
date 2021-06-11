@@ -36,35 +36,12 @@
 }
 
 
-/*
-
-.postIt:hover .btnContainer .btn{
-    display: initial;
-    transition:  display ease 0.5s;
-
-    
-}
-.postIt:hover .btnContainer{
-    background: rgb(76 76 67 / 62%);;
-}
-
-*/
-
 
 .postIt:visited{
     color: black;
 }
 
-/*
-@keyframes MoveUpDown {
-    0%, 100% {
-        margin-top: 0vh;
-    }
-    50% {
-        margin-top: 2vh;
-    }
-}
-*/
+
 
 @media only screen and (min-width: 656px) {
     #noteContainer:hover .postIt{
@@ -154,6 +131,7 @@
 
 .btnLinkList{
     padding: 9px;
+    margin-left: 55px;
     color: black;
     width: 40px;
     height: 22px;

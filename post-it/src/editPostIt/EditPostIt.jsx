@@ -13,7 +13,7 @@ import {useToasts} from 'react-toast-notifications'
 const EditPostIt=()=>{
     const dispatch = useDispatch();
     const location=useLocation();
-    const {id, listNote}=location.state||{id:"",listNote:""};
+    const {id, listNote}=location.state||{id:'',listNote:''};
     const [note, setNote]=useState(listNote);
     const {addToast}=useToasts();
 
@@ -31,9 +31,9 @@ const EditPostIt=()=>{
                 
                
                 addToast('PostIt editado con éxito!',{appearance:'success', autoDismiss: true, autoDismissTimeout:3000})
-                console.log("Salio todo joya");
+                console.log('Salio todo joya');
             } catch (error) {
-                console.log("Estoy en error");
+                console.log('Estoy en error');
                 addToast('Ups, Algo salió mal',{appearance:'error', autoDismiss: true, autoDismissTimeout:3000})
             }
             
@@ -53,13 +53,13 @@ const EditPostIt=()=>{
    
     
     return (
-            <div  className="editContainer">
+            <div  className='editContainer'>
 
-                <div className="editForm" >
+                <div className='editForm' >
                     <h1>Edit Your Post it</h1>
-                    <textarea maxLength="200" onChange={handleChange} value={note}></textarea>
-                    <Link to="/" className="btnEdit linkBtn">Cancelar</Link>
-                    <Link to="/" className="btnEdit linkBtn" onClick={formNote}>Guardar</Link>
+                    <textarea maxLength='200' onChange={handleChange} value={note}></textarea>
+                    <Link to='/' className='btnEdit linkBtn'>Cancelar</Link>
+                    <Link to='/' className='btnEdit linkBtn' onClick={formNote}>Guardar</Link>
                 </div>                          
             </div>
     )

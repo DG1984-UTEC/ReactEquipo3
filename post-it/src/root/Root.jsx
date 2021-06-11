@@ -1,11 +1,11 @@
 import React from 'react'
-import {BrowserRouter,Switch,Route} from "react-router-dom"
-import ListPostIt from "../list_post_it/ListPostIt"
-import TrashCan from "../trash_can/TrashCan"
-import EditPostIt from "../editPostIt/EditPostIt"
-import AddPostIt from "../addPostIt/AddPostIt"
-/*import {ToastProvider} from 'react-toast-notifications'*/
-import TrashCanList from "../trash_can_list/TrashCanList"
+import {BrowserRouter,Switch,Route} from 'react-router-dom'
+import ListPostIt from '../list_post_it/ListPostIt'
+import TrashCan from '../trash_can/TrashCan'
+import EditPostIt from '../editPostIt/EditPostIt'
+import AddPostIt from '../addPostIt/AddPostIt'
+
+import TrashCanList from '../trash_can_list/TrashCanList'
 
 
 
@@ -25,16 +25,16 @@ const Root=()=>{
             <BrowserRouter>
                 <TrashCan/>
                 <Switch>
-                    <Route exact path="/">
+                    <Route exact path='/'>
                         <ListPostIt/>
                     </Route>
-                    <Route path="/addPostIt">
+                    <Route path='/addPostIt'>
                     <AddPostIt/>
                     </Route>
-                    <Route path="/editPostIt">
+                    <Route path='/editPostIt'>
                         <EditPostIt/>
                     </Route>
-                    <Route path="/deletedPostIts">
+                    <Route path='/deletedPostIts'>
                         <TrashCanList/>
                     </Route>
                     </Switch>

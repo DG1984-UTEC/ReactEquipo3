@@ -3,7 +3,7 @@ import React from 'react'
 import {useSelector} from 'react-redux'
 import {useDispatch} from 'react-redux';
 import {restorePostIt, permanentDeletePostIt} from '../reducers/postIts';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 import {useToasts} from 'react-toast-notifications';
 
 function TrashCanList(){
@@ -13,7 +13,7 @@ function TrashCanList(){
 
     /*usamos Store*/
     const PostIts=useSelector((state)=>state.postIts.deletedPostIt);
-    /*<Link to={{pathname:"/editPostIt/", state:{id:element.id, listNote:element.note}}} className="btn btnLinkList" onClick={()=>editPostIt(element)}>Editar</Link> */
+    
 
 
     const restorePostItButton=(postIt)=>{
@@ -22,7 +22,7 @@ function TrashCanList(){
             dispatch(restorePostIt(postIt))
             addToast('PostIt restaurado con éxito!',{appearance:'success', autoDismiss: true, autoDismissTimeout:1500})
             if(PostIts.length===1){
-                history.push("/");
+                history.push('/');
             }
         
         } catch (error) {
@@ -34,7 +34,7 @@ function TrashCanList(){
 
     const permanentDeletePostItButton=(postIt)=>{
         
-        let ask=window.confirm("Estas seguro que quieres eliminarla de forma permanente?")
+        let ask=window.confirm('Estas seguro que quieres eliminarla de forma permanente?')
         
         console.log(ask);
 
@@ -43,7 +43,7 @@ function TrashCanList(){
                 dispatch(permanentDeletePostIt(postIt));
                 addToast('PostIt eliminado con éxito!',{appearance:'success', autoDismiss: true, autoDismissTimeout:1500})
                 if(PostIts.length===1){
-                    history.push("/");
+                    history.push('/');
                 }
             
             } catch (error) {
@@ -55,19 +55,19 @@ function TrashCanList(){
     }
 
     return(
-        <div className="postItContainer">
+        <div className='postItContainer'>
             <h1>Papelera</h1>
-            <div to="/editPostIt" className="postItWrap">
+            <div to='/editPostIt' className='postItWrap'>
                 {
                     
                         PostIts.map(element => (
-                            <div id="noteContainer"key={element.id}> 
-                                <div  className="postIt">
+                            <div id='noteContainer'key={element.id}> 
+                                <div  className='postIt'>
                                     {element.note}
                                 </div>
-                                <div className="btnContainer">
-                                    <button className="btn btnTrashCanList" onClick={()=>restorePostItButton(element)}>Restaurar</button> 
-                                    <button className="btn btnTrashCanList" onClick={()=>permanentDeletePostItButton(element)}>Borrar</button>
+                                <div className='btnContainer'>
+                                    <button className='btn btnTrashCanList' onClick={()=>restorePostItButton(element)}>Restaurar</button> 
+                                    <button className='btn btnTrashCanList' onClick={()=>permanentDeletePostItButton(element)}>Borrar</button>
                                 </div>
                             </div>
                         ))

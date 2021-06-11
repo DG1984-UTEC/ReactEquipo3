@@ -1,4 +1,4 @@
-/* import './EditPostIt.css'; */
+
 import React from 'react'
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -42,12 +42,12 @@ const  AddPostIt=()=>{
     }
     return(
         
-         <div  className="editContainer">
-                <div className="editForm">
+         <div  className='editContainer'>
+                <div className='editForm'>
                     <h1>Add Your Post it!</h1>
-                    <textarea maxLength="200"  onChange={handleChange} value={note}></textarea>
-                    <Link to="/" className="btnEdit linkBtn">Cancelar</Link>
-                    <Link to="/" className="btnEdit linkBtn" onClick={NewNote}>Guardar</Link>
+                    <textarea maxLength='200'  onChange={handleChange} value={note}></textarea>
+                    <Link to='/' className='btnEdit linkBtn'>Cancelar</Link>
+                    <Link to='/' className='btnEdit linkBtn' onClick={NewNote}>Guardar</Link>
                 </div>                          
             </div>
             
