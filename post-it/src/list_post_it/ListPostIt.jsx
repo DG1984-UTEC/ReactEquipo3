@@ -40,13 +40,16 @@ const ListPostIt=()=>{
                 <div to="/editPostIt" className="postItWrap">
                     {
                         PostIts.map(element => (
-                            <div  className="postIt" key={element.id}>
-                                {element.note}
+                            <div id="noteContainer"key={element.id}> 
+                                <div  className="postIt">
+                                    {element.note}
+                                </div>
                                 <div className="btnContainer">
-                                    <Link to={{pathname:"/editPostIt", state:{id:element.id, listNote:element.note}}} className="btn btnLinkList">Editar</Link>
-                                    <button className="btn" onClick={()=>deletePostItButton(element)}>Borrar</button>
+                                <Link to={{pathname:"/editPostIt", state:{id:element.id, listNote:element.note}}} className="btn btnLinkList">Editar</Link>
+                                <button className="btn" onClick={()=>deletePostItButton(element)}>Borrar</button>
                                 </div>
                             </div>
+
                         ))
                     } 
                             
