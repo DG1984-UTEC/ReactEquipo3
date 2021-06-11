@@ -3,8 +3,6 @@ import configureStore from 'redux-mock-store';
 import { renderComponent } from '../utils/tests';
 import TrashCan from './TrashCan';
 
-
-
 describe('ListPostIt',()=>{
     const initialState={
         postIts:{

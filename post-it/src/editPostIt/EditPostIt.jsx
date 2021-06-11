@@ -7,9 +7,6 @@ import { editPostIt} from '../reducers/postIts';
 import {useToasts} from 'react-toast-notifications'
 
 
-
-
-
 const EditPostIt=()=>{
     const dispatch = useDispatch();
     const location=useLocation();
@@ -20,8 +17,8 @@ const EditPostIt=()=>{
     
     const formNote=(e)=>{
         const postItDispatch={
-            id: id,
-            note: note
+            id,
+            note
         };
 
         if(note){

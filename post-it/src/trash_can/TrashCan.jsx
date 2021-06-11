@@ -17,10 +17,8 @@ function TrashCan(){
     const {addToast}=useToasts();
     const PostIts=useSelector((state)=>state.postIts.deletedPostIt);
     const dispatch=useDispatch();
-    /*Usamos history para poder cambiar boton */
+    //Usamos history para poder cambiar boton 
     const history=useHistory();
-    
-    
     const[button,setButton]=useState('Crear Post It');
     const[clearTrashCanDisplay, setClearTrashCan]=useState(false);
 
@@ -36,20 +34,16 @@ function TrashCan(){
             setButton('Atras'); 
         }
         
-})
+    })
         
-    
 
     const goToTrashCan=(e)=>{
         if( PostIts.length===0){
-        e.preventDefault()
-        addToast('Papelera vacia',{appearance:'error', autoDismiss: true, autoDismissTimeout:3000})
+            e.preventDefault()
+            addToast('Papelera vacia',{appearance:'error', autoDismiss: true, autoDismissTimeout:3000})
         }       
     } 
     
-
-    
-
     const switchBackAdd=(e)=>{
         if(button==='Atras'){
             e.preventDefault();
@@ -68,11 +62,8 @@ function TrashCan(){
             } catch (error) {
                 addToast('Ups, Algo salió mal',{appearance:'error', autoDismiss: true, autoDismissTimeout:3000})
             }
-            
         }
-        
    }
-
     return(
         <div className='trashCanContainer'>
             <Link to='/addPostIt' onClick={switchBackAdd}  className='btnAdd btnEdit linkBtn '>{button}</Link>
@@ -83,5 +74,4 @@ function TrashCan(){
         </div>
     )
 }
-
 export default TrashCan;

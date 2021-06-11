@@ -11,14 +11,13 @@ function TrashCanList(){
     const {addToast}=useToasts();
     const dispatch=useDispatch();
 
-    /*usamos Store*/
+    //usamos Store
     const PostIts=useSelector((state)=>state.postIts.deletedPostIt);
     
 
 
     const restorePostItButton=(postIt)=>{
         try {
-
             dispatch(restorePostIt(postIt))
             addToast('PostIt restaurado con éxito!',{appearance:'success', autoDismiss: true, autoDismissTimeout:1500})
             if(PostIts.length===1){
@@ -29,15 +28,12 @@ function TrashCanList(){
             addToast('Ups, Algo salió mal',{appearance:'error', autoDismiss: true, autoDismissTimeout:1500})
         } 
         
-
     }
 
     const permanentDeletePostItButton=(postIt)=>{
         
         let ask=window.confirm('Estas seguro que quieres eliminarla de forma permanente?')
         
-        console.log(ask);
-
         if(ask===true){
             try {
                 dispatch(permanentDeletePostIt(postIt));
@@ -53,30 +49,23 @@ function TrashCanList(){
         
 
     }
-
     return(
         <div className='postItContainer'>
             <h1>Papelera</h1>
             <div to='/editPostIt' className='postItWrap'>
                 {
-                    
-                        PostIts.map(element => (
-                            <div id='noteContainer'key={element.id}> 
-                                <div  className='postIt'>
-                                    {element.note}
-                                </div>
-                                <div className='btnContainer'>
-                                    <button className='btn btnTrashCanList' onClick={()=>restorePostItButton(element)}>Restaurar</button> 
-                                    <button className='btn btnTrashCanList' onClick={()=>permanentDeletePostItButton(element)}>Borrar</button>
-                                </div>
+                    PostIts.map(element => (
+                        <div id='noteContainer'key={element.id}> 
+                            <div  className='postIt'>
+                                {element.note}
                             </div>
+                            <div className='btnContainer'>
+                                <button className='btn btnTrashCanList' onClick={()=>restorePostItButton(element)}>Restaurar</button> 
+                                <button className='btn btnTrashCanList' onClick={()=>permanentDeletePostItButton(element)}>Borrar</button>
+                            </div>
+                        </div>
                         ))
-                    
-                    
-
-                    
-                } 
-                         
+                }           
             </div>
         </div>
     )

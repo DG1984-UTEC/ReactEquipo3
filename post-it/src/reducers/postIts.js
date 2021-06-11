@@ -1,15 +1,10 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 
-
-
 const editPostItAction=({listPostIt},payload)=>{
-    console.log('STATE', listPostIt);
-    console.log('PAYLOAD', payload);
     const {id, note}=payload;
 
     const index=listPostIt.findIndex(element=>element.id===id);
-
 
     listPostIt[index]={id:id,note:note};
 
@@ -19,23 +14,16 @@ const editPostItAction=({listPostIt},payload)=>{
 
 
 const AddPostItAction=({listPostIt},payload)=>{
-    console.log('STATE', listPostIt);
-    console.log('PAYLOAD', payload);
 
-    
     listPostIt.push(payload);
 
-    
     localStorage.setItem('listaNotas',JSON.stringify(listPostIt));
-   
-    
 }
 
 
 
 
 const deletePostItAction=({listPostIt,deletedPostIt},payload)=>{
-    
     
     const{id}=payload;
     const index=listPostIt.findIndex(element=>element.id===id);
@@ -44,14 +32,12 @@ const deletePostItAction=({listPostIt,deletedPostIt},payload)=>{
         listPostIt.splice(index,1);
         deletedPostIt.push(payload);
     
-        /*Cargo cambios en localStorage */
+        //Cargo cambios en localStorage 
         localStorage.setItem('listaNotas',JSON.stringify(listPostIt));
         localStorage.setItem('deletedPostIts',JSON.stringify(deletedPostIt));
 
     }
    
-
-
 }
 
 const restorePostItAction=({listPostIt,deletedPostIt},payload)=>{
@@ -62,8 +48,8 @@ const restorePostItAction=({listPostIt,deletedPostIt},payload)=>{
     if(index!==-1){
         deletedPostIt.splice(index,1);
         listPostIt.push(payload);
-    
-        /*Cargo cambios en localStorage */
+
+        //Cargo cambios en localStorage 
         localStorage.setItem('listaNotas',JSON.stringify(listPostIt));
         localStorage.setItem('deletedPostIts',JSON.stringify(deletedPostIt));
 
@@ -78,7 +64,7 @@ const permanentDeletePostItAction=({deletedPostIt},payload)=>{
     if(index!==-1){
         deletedPostIt.splice(index,1);
        
-        /*Cargo cambios en localStorage */
+        //Cargo cambios en localStorage 
         localStorage.setItem('deletedPostIts',JSON.stringify(deletedPostIt));
 
     }

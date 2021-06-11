@@ -7,40 +7,28 @@ import AddPostIt from '../addPostIt/AddPostIt'
 
 import TrashCanList from '../trash_can_list/TrashCanList'
 
-
-
-
-
-
-
-
-
 const Root=()=>{
    
-
-
-    
     return(
             
-            <BrowserRouter>
-                <TrashCan/>
-                <Switch>
-                    <Route exact path='/'>
-                        <ListPostIt/>
-                    </Route>
-                    <Route path='/addPostIt'>
+        <BrowserRouter>
+            <TrashCan/>
+            <Switch>
+                <Route exact path='/'>
+                    <ListPostIt/>
+                </Route>
+                <Route path='/addPostIt'>
                     <AddPostIt/>
-                    </Route>
-                    <Route path='/editPostIt'>
-                        <EditPostIt/>
-                    </Route>
-                    <Route path='/deletedPostIts'>
-                        <TrashCanList/>
-                    </Route>
-                    </Switch>
-            </BrowserRouter>
+                </Route>
+                <Route path='/editPostIt'>
+                    <EditPostIt/>
+                </Route>
+                <Route path='/deletedPostIts'>
+                    <TrashCanList/>
+                </Route>
+            </Switch>
+        </BrowserRouter>
         
     )
 }
-
 export default Root;
