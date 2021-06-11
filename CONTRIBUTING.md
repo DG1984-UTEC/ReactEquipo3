@@ -7,6 +7,7 @@
     -botonAgregar2
     -jest2
     -add/BackButtonChange 
+    -styles
 
 ## Code review dynamics and merging strategies
 
